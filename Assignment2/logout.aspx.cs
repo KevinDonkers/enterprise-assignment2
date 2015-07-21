@@ -18,7 +18,7 @@ namespace Assignment2
             //logout
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
-            Response.Redirect("/Admin/login.aspx");
+            Response.Redirect("~/login.aspx");
         }
     }
 }
