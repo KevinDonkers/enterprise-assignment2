@@ -18,7 +18,7 @@
         DataKeyNames="recipe_id" AllowPaging="true" OnPageIndexChanging="grdRecipes_PageIndexChanging" PageSize="3"
         OnSorting="grdRecipes_Sorting" AllowSorting="true" OnRowDataBound="grdRecipes_RowDataBound" GridLines="None">
         <Columns>
-            <asp:BoundField DataField="recipe_id" SortExpression="recipe_id" HeaderText="Recipe " />
+            <asp:BoundField DataField="recipe_id" SortExpression="recipe_id" HeaderText="Recipe ID" />
             <asp:BoundField DataField="recipe_name" SortExpression="recipe_name" HeaderText="Recipe Name" />
             <asp:HyperLinkField HeaderText="Edit" NavigateUrl="~/recipe.aspx" Text="Edit"
                 DataNavigateUrlFields="recipe_id" DataNavigateUrlFormatString="recipe.aspx?recipe_id={0}" />

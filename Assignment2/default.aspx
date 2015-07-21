@@ -4,5 +4,4 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Welcome To Our Website</h2>
     <p>Here you will find one of our greatest recipes</p>
-    
 </asp:Content>
