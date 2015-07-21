@@ -117,7 +117,7 @@
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="error.aspx" />
     <Content Include="images\Professor-Farnsworth.png" />
-    <Content Include="Admin\login.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Models\Model.edmx">
@@ -189,11 +189,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Admin\login.aspx.cs">
+    <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\login.aspx.designer.cs">
+    <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="logout.aspx.cs">
