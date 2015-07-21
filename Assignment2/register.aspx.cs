@@ -29,8 +29,7 @@ namespace Assignment2
 
             if (result.Succeeded)
             {
-                //lblStatus.Text = string.Format("User {0} was created successfully!", user.UserName);
-                // lblStatus.CssClass = "label label-success";
+                
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                 authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
