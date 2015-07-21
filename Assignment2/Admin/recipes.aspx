@@ -12,10 +12,11 @@
             <asp:ListItem Value="10" Text="10" />
         </asp:DropDownList>
     </div>
+    
     <asp:GridView ID="grdRecipes" runat="server" CssClass="table table-hover"
         AutoGenerateColumns="false" OnRowDeleting="grdRecipes_RowDeleting" 
         DataKeyNames="recipe_id" AllowPaging="true" OnPageIndexChanging="grdRecipes_PageIndexChanging" PageSize="3"
-        OnSorting="grdRecipes_Sorting" AllowSorting="true" OnRowDataBound="grdRecipes_RowDataBound">
+        OnSorting="grdRecipes_Sorting" AllowSorting="true" OnRowDataBound="grdRecipes_RowDataBound" GridLines="None">
         <Columns>
             <asp:BoundField DataField="recipe_id" SortExpression="recipe_id" HeaderText="Recipe " />
             <asp:BoundField DataField="recipe_name" SortExpression="recipe_name" HeaderText="Recipe Name" />
