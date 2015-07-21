@@ -1,0 +1,22 @@
+﻿.navbar-default {
+    background-image:none;
+    background-color:deepskyblue;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color:royalblue;
+}
+
+.navbar-default a.navbar-brand:focus, .navbar-default a.navbar-brand:hover {
+    color:royalblue;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default a.navbar-brand {
+    color:darkblue;
+}
+
+footer {
+    background-color:deepskyblue;
+    color:darkblue;
+    padding:15px;
+}
