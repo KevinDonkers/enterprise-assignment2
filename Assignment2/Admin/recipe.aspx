@@ -25,8 +25,8 @@
     </asp:Panel>
 
     <div class="form-group">
-        <asp:Button ID="btnAddIngredient" runat="server" Text="Add Another Ingredient" CssClass="btn btn-default" 
-                OnClick="btnAddIngredient_Click" />
+        <input id="btnAddIngredient" value="Add Another Ingredient" type="button" class="btn btn-default" 
+                onclick="btnAddIngredient_Click" />
     </div>
 
     <div class="form-group">
