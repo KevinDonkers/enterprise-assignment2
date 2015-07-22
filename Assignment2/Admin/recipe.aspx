@@ -16,7 +16,11 @@
             <label for="txtIngredientAmount1" class="col-sm-2">Ingredient 1 Amount:</label>
             <asp:TextBox ID="txtIngredientAmount1" runat="server" required="true" MaxLength="50" />
             <label for="txtIngredientUnit1" class="col-sm-2">Ingredient 1 Unit:</label>
-            <asp:DropDownList ID="ddlUnits" runat="server" required="true" />
+            <asp:DropDownList ID="ddlUnits" runat="server" required="true">
+                <asp:ListItem Value="Tbsp." Text="Tbsp." />
+                <asp:ListItem Value="tsp." Text="tsp." />
+                <asp:ListItem Value="Cups" Text="Cups" />
+            </asp:DropDownList>
         </div>
     </asp:Panel>
 
