@@ -9,7 +9,7 @@
     </div>
 
     <div class="form-group">
-   <label for="txtUsername" class="col-sm-2">UserName:</label>
+        <label for="txtUsername" class="col-sm-2">UserName:</label>
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
     </div>
 

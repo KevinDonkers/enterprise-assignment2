@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="Admin\recipe.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="error.aspx" />
     <Content Include="images\Professor-Farnsworth.png" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\recipe.aspx.cs">
+      <DependentUpon>recipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\recipe.aspx.designer.cs">
+      <DependentUpon>recipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\recipes.aspx.cs">
       <DependentUpon>recipes.aspx</DependentUpon>

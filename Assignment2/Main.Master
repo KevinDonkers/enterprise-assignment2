@@ -24,7 +24,8 @@
                 <li><a href="/login.aspx">Login</a></li>
             </asp:PlaceHolder>
             <asp:PlaceHolder ID="plhPrivate" runat="server">
-                <li><a href="/admin/recipes.aspx">Recipes</a></li>
+                <li><a href="/Admin/recipes.aspx">Recipes</a></li>
+                <li><a href="/Admin/recipe.aspx">Add a Recipe</a></li>
                 <li><a href="logout.aspx">Log Out</a></li>
             </asp:PlaceHolder>
         </ul>
