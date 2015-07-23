@@ -10,43 +10,34 @@
 namespace Assignment2.Admin {
     
     
-    public partial class recipe {
+    public partial class ingredient {
         
         /// <summary>
-        /// txtRecipeName control.
+        /// txtIngredientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRecipeName;
+        protected global::System.Web.UI.WebControls.TextBox txtIngredientName;
         
         /// <summary>
-        /// pnlIngredients control.
+        /// txtMeasurement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlIngredients;
+        protected global::System.Web.UI.WebControls.TextBox txtMeasurement;
         
         /// <summary>
-        /// grdIngredients control.
+        /// ddlUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdIngredients;
-        
-        /// <summary>
-        /// btnAddIngredient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddIngredient;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUnit;
         
         /// <summary>
         /// btnSave control.

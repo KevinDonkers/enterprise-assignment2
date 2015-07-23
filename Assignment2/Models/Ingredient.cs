@@ -11,17 +11,17 @@ namespace Assignment2.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Ingredient
     {
         public Ingredient()
         {
             this.Measurements = new HashSet<Measurement>();
         }
-
+    
         public int ingredient_id { get; set; }
         public string ingredient_name { get; set; }
-
+    
         public virtual ICollection<Measurement> Measurements { get; set; }
     }
 }

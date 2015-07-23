@@ -20,9 +20,7 @@ footer {
     color:darkblue;
     padding:15px;
 }
-h2 {
-    text-align:center;
-}
-p {
+
+.defaultPage {
     text-align:center;
 }

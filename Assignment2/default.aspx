@@ -2,6 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Welcome To Our Website</h2>
-    <p>Here you will find one of our greatest recipes</p>
+    <h2 class="defaultPage">Welcome To Our Website</h2>
+    <p class="defaultPage">Here you will find one of our greatest recipes</p>
 </asp:Content>

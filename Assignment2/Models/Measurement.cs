@@ -11,14 +11,14 @@ namespace Assignment2.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Measurement
     {
         public int recipe_id { get; set; }
         public int ingredient_id { get; set; }
-        public string measurement1 { get; set; }
+        public string measurement { get; set; }
         public string unit { get; set; }
-
+    
         public virtual Ingredient Ingredient { get; set; }
         public virtual Recipe Recipe { get; set; }
     }

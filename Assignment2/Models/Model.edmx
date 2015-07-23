@@ -86,7 +86,7 @@
           </Key>
           <Property Name="recipe_id" Type="Int32" Nullable="false" />
           <Property Name="ingredient_id" Type="Int32" Nullable="false" />
-          <Property Name="measurement1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="measurement" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Ingredient" Relationship="Self.fk_measurement_ingredient_id" FromRole="Measurements" ToRole="Ingredients" />
           <NavigationProperty Name="Recipe" Relationship="Self.fk_measurement_recipe_id" FromRole="Measurements" ToRole="Recipes" />
@@ -156,7 +156,7 @@
               <MappingFragment StoreEntitySet="Measurements">
                 <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
                 <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
-                <ScalarProperty Name="measurement1" ColumnName="measurement" />
+                <ScalarProperty Name="measurement" ColumnName="measurement" />
                 <ScalarProperty Name="unit" ColumnName="unit" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="Admin\ingredient.aspx" />
     <Content Include="Admin\recipe.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="error.aspx" />
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ingredient.aspx.cs">
+      <DependentUpon>ingredient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ingredient.aspx.designer.cs">
+      <DependentUpon>ingredient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\recipe.aspx.cs">
       <DependentUpon>recipe.aspx</DependentUpon>
