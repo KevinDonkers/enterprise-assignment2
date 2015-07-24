@@ -15,8 +15,13 @@
     color:darkblue;
 }
 
+#ContentPlaceHolder1_txtRecipeDirections {
+    height: 100px;
+    width: 350px;
+}
+
 footer {
-    text-align:center;
+   
     color:darkblue;
     padding:15px;
 }
@@ -24,11 +29,7 @@ footer {
 .defaultPage {
     text-align:center;
 }
-div label {
+
+div {
     color: darkblue;
 }
-
-body {
-        background:url("vegetables.jpg");
-      }
-    
