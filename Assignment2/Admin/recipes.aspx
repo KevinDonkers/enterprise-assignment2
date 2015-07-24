@@ -19,7 +19,9 @@
         OnSorting="grdRecipes_Sorting" AllowSorting="true" OnRowDataBound="grdRecipes_RowDataBound" GridLines="None">
         <Columns>
             <asp:BoundField DataField="recipe_id" SortExpression="recipe_id" HeaderText="Recipe ID" />
-            <asp:BoundField DataField="recipe_name" SortExpression="recipe_name" HeaderText="Recipe Name" />
+            <asp:HyperLinkField DataTextField="recipe_name" SortExpression="recipe_name" HeaderText="Recipe Name"
+                NavigateUrl="~/Admin/viewRecipe.aspx" DataNavigateUrlFormatString="viewRecipe.aspx?recipe_id={0}"
+                DataNavigateUrlFields="recipe_id" />
             <asp:HyperLinkField HeaderText="Edit" NavigateUrl="~/recipe.aspx" Text="Edit"
                 DataNavigateUrlFields="recipe_id" DataNavigateUrlFormatString="recipe.aspx?recipe_id={0}" />
             <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />

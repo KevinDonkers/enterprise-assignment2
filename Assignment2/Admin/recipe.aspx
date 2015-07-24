@@ -24,6 +24,8 @@
             </Columns>
         </asp:GridView>
     </asp:Panel>
+    
+    <asp:Label ID="lblIngredientMessage" runat="server" Visible="false"></asp:Label>
 
     <div class="form-group">
         <asp:Button ID="btnAddIngredient" runat="server" Text="Add Ingredient" CssClass="btn btn-primary" 

@@ -109,12 +109,61 @@ namespace Assignment2.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
+            {
+                lblIngredientMessage.Text = "At Least One Ingredent Must be Added";
+                lblIngredientMessage.Visible = true;
+            } 
+            else
+            {
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+                    Recipe r = new Recipe();
+                    Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);
 
+                    r = (from rec in conn.Recipes
+                         where rec.recipe_id == RecipeID
+                         select rec).FirstOrDefault();
+
+                    //fill the properties of our object from the form inputs
+                    r.recipe_name = txtRecipeName.Text;
+                    r.directions = txtRecipeDirections.Text;
+
+                    conn.SaveChanges();
+
+                    lblIngredientMessage.Visible = false;
+                    Response.Redirect("/Admin/recipes.aspx");
+                }
+            }
         }
 
         protected void grdIngredients_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            //get the selected ingredient id
+            Int32 IngredientID = Convert.ToInt32(grdIngredients.DataKeys[e.RowIndex].Values["ingredient_id"]);
+            //get the recipe id
+            Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);     
 
+            //try
+            //{
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+
+                    Measurement objM = (from mes in conn.Measurements
+                                       where mes.recipe_id == RecipeID && mes.ingredient_id == IngredientID
+                                       select mes).FirstOrDefault();
+
+                    conn.Measurements.Remove(objM);
+                    conn.SaveChanges();
+
+                    GetRecipe();
+
+                }
+            //}
+            //catch (Exception exc)
+            //{
+            //    Response.Redirect("~/error.aspx");
+            //}
         }
     }
 }

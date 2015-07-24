@@ -62,7 +62,12 @@ namespace Assignment2.Admin
                               where r.recipe_id == Recipe_id
                               select r).FirstOrDefault();
 
+                var measure = (from mes in conn.Measurements
+                               where mes.recipe_id == Recipe_id
+                               select mes);
+
                 //delete
+                conn.Measurements.RemoveRange(measure);
                 conn.Recipes.Remove(recipe);
                 conn.SaveChanges();
 
