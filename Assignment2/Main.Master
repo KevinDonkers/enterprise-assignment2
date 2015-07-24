@@ -16,6 +16,11 @@
     <link href="css/main.css" rel="stylesheet" />
 </head>
 <body>
+    <style>
+        body{
+            background:url("images/vegetables.jpg");
+        }
+    </style>
     <nav class="nav navbar-default">
         <a href="/default.aspx" class="nav navbar-brand">Rapid Recipies</a>
         <ul class="nav navbar-nav">
