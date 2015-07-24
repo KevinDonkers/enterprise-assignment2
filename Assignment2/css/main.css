@@ -16,7 +16,7 @@
 }
 
 footer {
-   
+    text-align:center;
     color:darkblue;
     padding:15px;
 }
@@ -24,6 +24,11 @@ footer {
 .defaultPage {
     text-align:center;
 }
-div {
+div label {
     color: darkblue;
 }
+
+body {
+        background:url("vegetables.jpg");
+      }
+    
