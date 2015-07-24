@@ -18,7 +18,7 @@ namespace Assignment2.Admin
             if (!IsPostBack)
             {
 
-                if (!String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
+                if (!String.IsNullOrEmpty(Request.QueryString["ingredient_id"]))
                 {
                     //we have a parameter populate the form
                     GetIngredient();
@@ -42,10 +42,20 @@ namespace Assignment2.Admin
                          join mes in conn.Measurements on rec.recipe_id equals mes.recipe_id
                          join ing in conn.Ingredients on mes.ingredient_id equals ing.ingredient_id
                          where (rec.recipe_id == RecipeID) && (ing.ingredient_id == IngredientID)
-                         select new { rec.recipe_name, ing.ingredient_id, ing.ingredient_name, mes.measurement, mes.unit });
+                         select new { ing.ingredient_name, mes.measurement, mes.unit }).FirstOrDefault();
 
                 //populate the form
+                txtIngredientName.Text = i.ingredient_name;
+                txtMeasurement.Text = i.measurement;
                 
+                //go through the unit ddl and select the matching unit
+                foreach (ListItem item in ddlUnit.Items)
+                {
+                    if (item.Text == i.unit)
+                    {
+                        ddlUnit.SelectedValue = item.Value;
+                    }
+                }
 
             }
             /*}

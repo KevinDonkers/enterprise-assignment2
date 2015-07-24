@@ -44,7 +44,8 @@ namespace Assignment2.Admin
                                 select new 
                                 { 
                                     rec.recipe_id,
-                                    rec.recipe_name, 
+                                    rec.recipe_name,
+                                    rec.directions,
                                     ing.ingredient_id, 
                                     ing.ingredient_name, 
                                     mes.measurement, 
@@ -53,9 +54,12 @@ namespace Assignment2.Admin
 
                     //populate the form
                     txtRecipeName.Text = r.FirstOrDefault().recipe_name;
+                    txtRecipeDirections.Text = r.FirstOrDefault().directions;
+
                     grdIngredients.DataSource = r.ToList();
                     grdIngredients.DataBind();
 
+                    pnlIngredients.Visible = true;
                 }
             /*}
             catch (Exception e)
@@ -66,6 +70,40 @@ namespace Assignment2.Admin
 
         protected void btnAddIngredient_Click(object sender, EventArgs e)
         {
+            Int32 RecipeID;
+
+            if (!String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
+            {
+                //get the recipe id
+                RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);                
+            }
+            else
+            {
+                //connect
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+                    //instantiate a new recipe object in memory
+                    Recipe r = new Recipe();
+
+                    //fill the properties of our object from the form inputs
+                    r.recipe_name = txtRecipeName.Text;
+                    r.directions = txtRecipeDirections.Text;
+                    
+                    
+                    //add the new object and save changes
+                    conn.Recipes.Add(r);
+                    conn.SaveChanges();
+
+                    //get recipe info
+                    var Recipe = (from rec in conn.Recipes
+                                    where rec.recipe_name == r.recipe_name && rec.directions == r.directions
+                                    select new { rec.recipe_id}).FirstOrDefault();
+
+                    RecipeID = Recipe.recipe_id;
+                }
+            }
+
+            Response.Redirect("/Admin/ingredient.aspx?recipe_id=" + RecipeID);
 
         }
 

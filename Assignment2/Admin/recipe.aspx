@@ -9,7 +9,7 @@
         <asp:TextBox ID="txtRecipeName" runat="server" required="true" MaxLength="50" />
     </div>
 
-    <asp:Panel ID="pnlIngredients" runat="server">
+    <asp:Panel ID="pnlIngredients" runat="server" Visible="false">
         <h2>Ingredients</h2>
         <asp:GridView ID="grdIngredients" runat="server" CssClass="table table-striped table-hover"
             AutoGenerateColumns="false" DataKeyNames="ingredient_id"
@@ -25,9 +25,14 @@
         </asp:GridView>
     </asp:Panel>
 
-    <div class="col-sm-offset-3">
-        <asp:Button ID="btnAddIngredient" runat="server" Text="Save" CssClass="btn btn-primary" 
+    <div class="form-group">
+        <asp:Button ID="btnAddIngredient" runat="server" Text="Add Ingredient" CssClass="btn btn-primary" 
         OnClick="btnAddIngredient_Click"/>
+    </div>
+
+    <div class="form-group">
+        <label for="txtRecipeDirections" class="col-sm-3">Directions:</label>
+        <asp:TextBox ID="txtRecipeDirections" runat="server" required="true" TextMode="MultiLine" MaxLength="1500" />
     </div>
 
     <div class="col-sm-offset-3">

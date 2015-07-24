@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ingredient_id" />
           </Key>
-          <Property Name="ingredient_id" Type="int" Nullable="false" />
+          <Property Name="ingredient_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ingredient_name" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Measurements">
@@ -26,7 +26,7 @@
           <Key>
             <PropertyRef Name="recipe_id" />
           </Key>
-          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="recipe_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="recipe_name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="directions" Type="varchar" MaxLength="1500" Nullable="false" />
         </EntityType>
@@ -75,7 +75,7 @@
           <Key>
             <PropertyRef Name="ingredient_id" />
           </Key>
-          <Property Name="ingredient_id" Type="Int32" Nullable="false" />
+          <Property Name="ingredient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ingredient_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Measurements" Relationship="Self.fk_measurement_ingredient_id" FromRole="Ingredients" ToRole="Measurements" />
         </EntityType>
@@ -95,7 +95,7 @@
           <Key>
             <PropertyRef Name="recipe_id" />
           </Key>
-          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="recipe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="recipe_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="directions" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Measurements" Relationship="Self.fk_measurement_recipe_id" FromRole="Recipes" ToRole="Measurements" />
