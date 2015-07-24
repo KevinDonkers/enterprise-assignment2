@@ -28,18 +28,25 @@ namespace Assignment2.Admin
 
         protected void GetRecipes()
         {
-            //connect using our connection string from web.config and EF context class
-            using (DefaultConnectionEF conn = new DefaultConnectionEF())
+            try
+            { 
+                //connect using our connection string from web.config and EF context class
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+
+                    //use link to query the Recipes model
+                    var recipes = from r in conn.Recipes
+                                  select r;
+
+                    //append the current direction to the sort column
+                    String sort = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
+                    grdRecipes.DataSource = recipes.AsQueryable().OrderBy(sort).ToList();
+                    grdRecipes.DataBind();
+                }
+            }
+            catch (Exception e)
             {
-
-                //use link to query the Departments model
-                var recipes = from r in conn.Recipes
-                              select r;
-
-                //append the current direction to the sort column
-                String sort = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
-                grdRecipes.DataSource = recipes.AsQueryable().OrderBy(sort).ToList();
-                grdRecipes.DataBind();
+                Response.Redirect("~/error.aspx");
             }
         }
 
@@ -52,28 +59,35 @@ namespace Assignment2.Admin
 
         protected void grdRecipes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //connect
-            using (DefaultConnectionEF conn = new DefaultConnectionEF())
+            try
+            { 
+                //connect
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+                    //get the selected recipe_id
+                    Int32 Recipe_id = Convert.ToInt32(grdRecipes.DataKeys[e.RowIndex].Values["recipe_id"]);
+
+                    var recipe = (from r in conn.Recipes
+                                  where r.recipe_id == Recipe_id
+                                  select r).FirstOrDefault();
+
+                    var measure = (from mes in conn.Measurements
+                                   where mes.recipe_id == Recipe_id
+                                   select mes);
+
+                    //delete
+                    conn.Measurements.RemoveRange(measure);
+                    conn.Recipes.Remove(recipe);
+                    conn.SaveChanges();
+
+                    //update the grid
+                    GetRecipes();
+
+                }
+            }
+            catch (Exception ex)
             {
-                //get the selected recipe_id
-                Int32 Recipe_id = Convert.ToInt32(grdRecipes.DataKeys[e.RowIndex].Values["recipe_id"]);
-
-                var recipe = (from r in conn.Recipes
-                              where r.recipe_id == Recipe_id
-                              select r).FirstOrDefault();
-
-                var measure = (from mes in conn.Measurements
-                               where mes.recipe_id == Recipe_id
-                               select mes);
-
-                //delete
-                conn.Measurements.RemoveRange(measure);
-                conn.Recipes.Remove(recipe);
-                conn.SaveChanges();
-
-                //update the grid
-                GetRecipes();
-
+                Response.Redirect("~/error.aspx");
             }
         }
 

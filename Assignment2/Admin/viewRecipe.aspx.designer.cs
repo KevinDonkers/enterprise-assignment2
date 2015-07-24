@@ -22,13 +22,13 @@ namespace Assignment2.Admin {
         protected global::System.Web.UI.WebControls.Label RecipeTitle;
         
         /// <summary>
-        /// grdIngredients control.
+        /// grdViewIngredients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdIngredients;
+        protected global::System.Web.UI.WebControls.GridView grdViewIngredients;
         
         /// <summary>
         /// RecipeDirections control.

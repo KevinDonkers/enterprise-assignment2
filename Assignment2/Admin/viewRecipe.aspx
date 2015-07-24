@@ -5,7 +5,7 @@
     <h2><asp:Label ID="RecipeTitle" runat="server"></asp:Label></h2>
 
     <h2>Ingredients</h2>
-        <asp:GridView ID="grdIngredients" runat="server" CssClass="table table-striped table-hover"
+        <asp:GridView ID="grdViewIngredients" runat="server" CssClass="table table-hover"
             AutoGenerateColumns="false" DataKeyNames="ingredient_id" GridLines="none" ShowHeader="false" >
             <Columns>
                 <asp:BoundField DataField="measurement" HeaderText="Amount" />

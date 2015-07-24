@@ -28,8 +28,8 @@ namespace Assignment2.Admin
 
         protected void GetRecipe()
         {
-            //try
-            //{
+            try
+            {
                 //connect
                 using (DefaultConnectionEF conn = new DefaultConnectionEF())
                 {
@@ -61,79 +61,94 @@ namespace Assignment2.Admin
 
                     pnlIngredients.Visible = true;
                 }
-            /*}
+            }
             catch (Exception e)
             {
-                //Response.Redirect("~/error.aspx");
-            }*/
+                Response.Redirect("~/error.aspx");
+            }
         }
 
         protected void btnAddIngredient_Click(object sender, EventArgs e)
         {
             Int32 RecipeID;
 
-            if (!String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
+
+            try 
             {
-                //get the recipe id
-                RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);                
-            }
-            else
-            {
-                //connect
-                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+
+                if (!String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
                 {
-                    //instantiate a new recipe object in memory
-                    Recipe r = new Recipe();
-
-                    //fill the properties of our object from the form inputs
-                    r.recipe_name = txtRecipeName.Text;
-                    r.directions = txtRecipeDirections.Text;
-                    
-                    
-                    //add the new object and save changes
-                    conn.Recipes.Add(r);
-                    conn.SaveChanges();
-
-                    //get recipe info
-                    var Recipe = (from rec in conn.Recipes
-                                    where rec.recipe_name == r.recipe_name && rec.directions == r.directions
-                                    select new { rec.recipe_id}).FirstOrDefault();
-
-                    RecipeID = Recipe.recipe_id;
+                    //get the recipe id
+                    RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);                
                 }
+                else
+                {
+                    //connect
+                    using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                    {
+                        //instantiate a new recipe object in memory
+                        Recipe r = new Recipe();
+
+                        //fill the properties of our object from the form inputs
+                        r.recipe_name = txtRecipeName.Text;
+                        r.directions = txtRecipeDirections.Text;
+                    
+                    
+                        //add the new object and save changes
+                        conn.Recipes.Add(r);
+                        conn.SaveChanges();
+
+                        //get recipe info
+                        var Recipe = (from rec in conn.Recipes
+                                        where rec.recipe_name == r.recipe_name && rec.directions == r.directions
+                                        select new { rec.recipe_id}).FirstOrDefault();
+
+                        RecipeID = Recipe.recipe_id;
+                    }
+                }
+
+                Response.Redirect("/Admin/ingredient.aspx?recipe_id=" + RecipeID);
             }
-
-            Response.Redirect("/Admin/ingredient.aspx?recipe_id=" + RecipeID);
-
+            catch (Exception ex)
+            {
+                Response.Redirect("~/error.aspx");
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
-            {
-                lblIngredientMessage.Text = "At Least One Ingredent Must be Added";
-                lblIngredientMessage.Visible = true;
-            } 
-            else
-            {
-                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+            try
+            { 
+                if (String.IsNullOrEmpty(Request.QueryString["recipe_id"]))
                 {
-                    Recipe r = new Recipe();
-                    Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);
+                    lblIngredientMessage.Text = "At Least One Ingredent Must be Added";
+                    lblIngredientMessage.Visible = true;
+                } 
+                else
+                {
+                    using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                    {
+                        Recipe r = new Recipe();
+                        Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);
 
-                    r = (from rec in conn.Recipes
-                         where rec.recipe_id == RecipeID
-                         select rec).FirstOrDefault();
+                        r = (from rec in conn.Recipes
+                             where rec.recipe_id == RecipeID
+                             select rec).FirstOrDefault();
 
-                    //fill the properties of our object from the form inputs
-                    r.recipe_name = txtRecipeName.Text;
-                    r.directions = txtRecipeDirections.Text;
+                        //fill the properties of our object from the form inputs
+                        r.recipe_name = txtRecipeName.Text;
+                        r.directions = txtRecipeDirections.Text;
 
-                    conn.SaveChanges();
+                        conn.SaveChanges();
 
-                    lblIngredientMessage.Visible = false;
-                    Response.Redirect("/Admin/recipes.aspx");
+                        lblIngredientMessage.Visible = false;
+                        Response.Redirect("/Admin/recipes.aspx");
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                Response.Redirect("~/error.aspx");
             }
         }
 
@@ -144,8 +159,8 @@ namespace Assignment2.Admin
             //get the recipe id
             Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);     
 
-            //try
-            //{
+            try
+            {
                 using (DefaultConnectionEF conn = new DefaultConnectionEF())
                 {
 
@@ -159,11 +174,11 @@ namespace Assignment2.Admin
                     GetRecipe();
 
                 }
-            //}
-            //catch (Exception exc)
-            //{
-            //    Response.Redirect("~/error.aspx");
-            //}
+            }
+            catch (Exception exc)
+            {
+                Response.Redirect("~/error.aspx");
+            }
         }
     }
 }

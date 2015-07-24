@@ -33,3 +33,16 @@ footer {
 div {
     color: darkblue;
 }
+
+body {
+    background:url("../images/vegetables.jpg");
+}
+
+#ContentPlaceHolder1_grdRecipes, #ContentPlaceHolder1_grdIngredients, #ContentPlaceHolder1_grdViewIngredients, #ContentPlaceHolder1_grdIngredients th {
+    background-color: deepskyblue;
+    border-radius: 25px;
+}
+
+a {
+    color:black;
+}

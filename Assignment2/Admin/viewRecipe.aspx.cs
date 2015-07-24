@@ -28,8 +28,8 @@ namespace Assignment2.Admin
 
         protected void GetRecipe()
         {
-            //try
-            //{
+            try
+            {
             //connect
             using (DefaultConnectionEF conn = new DefaultConnectionEF())
             {
@@ -56,14 +56,14 @@ namespace Assignment2.Admin
                 RecipeTitle.Text = r.FirstOrDefault().recipe_name;
                 RecipeDirections.Text = r.FirstOrDefault().directions;
 
-                grdIngredients.DataSource = r.ToList();
-                grdIngredients.DataBind();
+                grdViewIngredients.DataSource = r.ToList();
+                grdViewIngredients.DataBind();
             }
-            /*}
+            }
             catch (Exception e)
             {
-                //Response.Redirect("~/error.aspx");
-            }*/
+                Response.Redirect("~/error.aspx");
+            }
         }
     }
 }
