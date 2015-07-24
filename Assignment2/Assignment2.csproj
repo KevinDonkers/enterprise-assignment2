@@ -119,6 +119,7 @@
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="error.aspx" />
     <Content Include="images\Professor-Farnsworth.png" />
+    <Content Include="images\vegetables.jpg" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="packages.config" />
