@@ -15,6 +15,11 @@
     color:darkblue;
 }
 
+#ContentPlaceHolder1_txtRecipeDirections {
+    height: 100px;
+    width: 350px;
+}
+
 footer {
    
     color:darkblue;
@@ -24,6 +29,7 @@ footer {
 .defaultPage {
     text-align:center;
 }
+
 div {
     color: darkblue;
 }

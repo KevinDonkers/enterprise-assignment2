@@ -17,7 +17,7 @@
 </head>
 <body>
     <style>
-        body{
+        body {
             background:url("images/vegetables.jpg");
         }
     </style>
