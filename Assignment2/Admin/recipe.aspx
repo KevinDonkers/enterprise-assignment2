@@ -11,7 +11,7 @@
 
     <asp:Panel ID="pnlIngredients" runat="server" Visible="false">
         <h2>Ingredients</h2>
-        <asp:GridView ID="grdIngredients" runat="server" CssClass="table table-striped table-hover"
+        <asp:GridView ID="grdIngredients" runat="server" CssClass="table table-hover"
             AutoGenerateColumns="false" DataKeyNames="ingredient_id"
             OnRowDeleting="grdIngredients_RowDeleting" GridLines="none" >
             <Columns>
@@ -24,6 +24,8 @@
             </Columns>
         </asp:GridView>
     </asp:Panel>
+    
+    <asp:Label ID="lblIngredientMessage" runat="server" Visible="false"></asp:Label>
 
     <div class="form-group">
         <asp:Button ID="btnAddIngredient" runat="server" Text="Add Ingredient" CssClass="btn btn-primary" 

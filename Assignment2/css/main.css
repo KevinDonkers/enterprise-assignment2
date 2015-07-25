@@ -21,25 +21,28 @@
 }
 
 footer {
-
-    text-align:center;
+   
     color:darkblue;
     padding:15px;
 }
 
 .defaultPage {
     text-align:center;
+}
+
+div {
     color: darkblue;
 }
 
-div label {
-    color: darkblue;
-}
-
-body{
+body {
     background:url("../images/vegetables.jpg");
 }
 
-h1{
-    color: darkblue;
+#ContentPlaceHolder1_grdRecipes, #ContentPlaceHolder1_grdIngredients, #ContentPlaceHolder1_grdViewIngredients, #ContentPlaceHolder1_grdIngredients th {
+    background-color: deepskyblue;
+    border-radius: 25px;
+}
+
+a {
+    color:black;
 }

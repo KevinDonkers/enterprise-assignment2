@@ -116,6 +116,7 @@
     <Content Include="404.aspx" />
     <Content Include="Admin\ingredient.aspx" />
     <Content Include="Admin\recipe.aspx" />
+    <Content Include="Admin\viewRecipe.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="error.aspx" />
     <Content Include="images\Professor-Farnsworth.png" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="Admin\recipes.aspx.designer.cs">
       <DependentUpon>recipes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\viewRecipe.aspx.cs">
+      <DependentUpon>viewRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\viewRecipe.aspx.designer.cs">
+      <DependentUpon>viewRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

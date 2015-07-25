@@ -23,6 +23,7 @@
             <asp:ListItem Value="oz." Text="oz." />
             <asp:ListItem Value="grams" Text="grams" />
             <asp:ListItem Value="lbs." Text="lbs." />
+            <asp:ListItem Value="lb" Text="lb" />
             <asp:ListItem Value="kg" Text="kg" />
         </asp:DropDownList>
     </div>

@@ -28,8 +28,8 @@ namespace Assignment2.Admin
 
         protected void GetIngredient()
         {
-            //try
-            //{
+            try
+            {
             //connect
             using (DefaultConnectionEF conn = new DefaultConnectionEF())
             {
@@ -58,16 +58,62 @@ namespace Assignment2.Admin
                 }
 
             }
-            /*}
+            }
             catch (Exception e)
             {
-                //Response.Redirect("~/error.aspx");
-            }*/
+                Response.Redirect("~/error.aspx");
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            { 
+                using (DefaultConnectionEF conn = new DefaultConnectionEF())
+                {
+                    //instantiate a new student object in memory
+                    Ingredient i = new Ingredient();
+                    Measurement m = new Measurement();
+                    Int32 RecipeID = Convert.ToInt32(Request.QueryString["recipe_id"]);
 
+                    //decide if updating or adding, then save
+                    if (!String.IsNullOrEmpty(Request.QueryString["ingredient_id"]))
+                    {
+                        Int32 IngredientID = Convert.ToInt32(Request.QueryString["ingredient_id"]);
+
+                        i = (from ing in conn.Ingredients
+                             join mes in conn.Measurements on ing.ingredient_id equals mes.ingredient_id
+                             where ing.ingredient_id == IngredientID
+                             select ing).FirstOrDefault();
+
+                        //fill the properties of our object from the form inputs
+                        i.Measurements.FirstOrDefault().measurement = txtMeasurement.Text;
+                        i.Measurements.FirstOrDefault().unit = ddlUnit.SelectedValue;
+                    }
+
+                    i.ingredient_name = txtIngredientName.Text;
+
+                    if (String.IsNullOrEmpty(Request.QueryString["ingredient_id"]))
+                    {
+                        m.measurement = txtMeasurement.Text;
+                        m.unit = ddlUnit.SelectedValue;
+                        m.ingredient_id = i.ingredient_id;
+                        m.recipe_id = RecipeID;
+
+                    
+                        conn.Ingredients.Add(i);
+                        conn.Measurements.Add(m);
+                    }
+                    conn.SaveChanges();
+
+                    //redirect to updated departments page
+                    Response.Redirect("~/Admin/recipe.aspx?recipe_id=" + RecipeID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/error.aspx");
+            }
         }
     }
 }

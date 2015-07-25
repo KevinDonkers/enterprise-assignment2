@@ -16,7 +16,7 @@ namespace Assignment2
         void Application_Error(object sender, EventArgs e)
         {
             // An error has occured on a .Net page.
-            /*var serverError = Server.GetLastError() as HttpException;
+            var serverError = Server.GetLastError() as HttpException;
 
             if (null != serverError)
             {
@@ -32,7 +32,7 @@ namespace Assignment2
 
             // Clear the error from the server
             Server.ClearError();
-            Server.Transfer("~/error.aspx");*/
+            Server.Transfer("~/error.aspx");
         }
     }
 }
