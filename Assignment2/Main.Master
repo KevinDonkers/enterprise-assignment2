@@ -1,9 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Assignment2.Main" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" type="css" href="main.css"/>
     <title>Rapid Recipes</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -16,11 +16,7 @@
     <link href="css/main.css" rel="stylesheet" />
 </head>
 <body>
-    <style>
-        body {
-            background:url("images/vegetables.jpg");
-        }
-    </style>
+
     <nav class="nav navbar-default">
         <a href="/default.aspx" class="nav navbar-brand">Rapid Recipies</a>
         <ul class="nav navbar-nav">
