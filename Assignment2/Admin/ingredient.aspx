@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label for="txtMeasurement" class="col-sm-3">Amount:</label>
-        <asp:TextBox ID="txtMeasurement" runat="server" required="true" MaxLength="50" />
+        <asp:TextBox ID="txtMeasurement" runat="server" required="true" MaxLength="5" />
     </div>
     <div class="form-group">
         <label for="ddlUnit" class="col-sm-3">Unit</label>

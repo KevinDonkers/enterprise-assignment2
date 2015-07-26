@@ -28,8 +28,8 @@ namespace Assignment2.Admin
 
         protected void GetIngredient()
         {
-            try
-            {
+            //try
+            //{
             //connect
             using (DefaultConnectionEF conn = new DefaultConnectionEF())
             {
@@ -58,17 +58,17 @@ namespace Assignment2.Admin
                 }
 
             }
-            }
+            /*}
             catch (Exception e)
             {
                 Response.Redirect("~/error.aspx");
-            }
+            }*/
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            { 
+            //try
+            //{ 
                 using (DefaultConnectionEF conn = new DefaultConnectionEF())
                 {
                     //instantiate a new student object in memory
@@ -109,11 +109,11 @@ namespace Assignment2.Admin
                     //redirect to updated departments page
                     Response.Redirect("~/Admin/recipe.aspx?recipe_id=" + RecipeID);
                 }
-            }
+            /*}
             catch (Exception ex)
             {
                 Response.Redirect("~/error.aspx");
-            }
+            }*/
         }
     }
 }
