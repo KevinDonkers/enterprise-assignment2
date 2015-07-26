@@ -125,7 +125,6 @@
     <Content Include="images\vegetables.jpg" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
-    <Content Include="packages.config" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -144,6 +143,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Main.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
