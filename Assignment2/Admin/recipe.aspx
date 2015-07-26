@@ -11,6 +11,9 @@
 
     <asp:Panel ID="pnlIngredients" runat="server" Visible="false">
         <h2>Ingredients</h2>
+        
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+
         <asp:GridView ID="grdIngredients" runat="server" CssClass="table table-hover"
             AutoGenerateColumns="false" DataKeyNames="ingredient_id"
             OnRowDeleting="grdIngredients_RowDeleting" GridLines="none" >

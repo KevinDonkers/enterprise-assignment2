@@ -107,11 +107,11 @@ namespace Assignment2.Admin
                     }
                 }
 
-                Response.Redirect("/Admin/ingredient.aspx?recipe_id=" + RecipeID);
+                Response.Redirect("~/Admin/ingredient.aspx?recipe_id=" + RecipeID);
             }
             catch (Exception ex)
             {
-                Response.Redirect("~/error.aspx");
+                lblError.Text = ex.Message;
             }
         }
 
@@ -148,7 +148,7 @@ namespace Assignment2.Admin
             }
             catch (Exception exception)
             {
-                Response.Redirect("~/error.aspx");
+                lblError.Text = exception.Message;
             }
         }
 
